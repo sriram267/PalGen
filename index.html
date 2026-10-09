@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Palgen — Coucou Dynamic Island</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+      /* Background Workspace Styling */
+      .workspace-background {
+        position: fixed;
+        inset: 0;
+        z-index: 1;
+        overflow-y: auto;
+        padding: 90px 24px 100px 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        pointer-events: auto;
+      }
+
+      .ambient-glow {
+        position: fixed;
+        top: -120px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 600px;
+        height: 260px;
+        background: radial-gradient(circle, rgba(99, 102, 241, 0.22) 0%, rgba(168, 85, 247, 0.08) 45%, transparent 70%);
+        filter: blur(50px);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .notch-guide {
+        position: fixed;
+        top: 2px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 10px;
+        color: rgba(255, 255, 255, 0.25);
+        letter-spacing: 0.05em;
+        pointer-events: none;
+        z-index: 10001;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .hero-section {
+        max-width: 860px;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 32px;
+      }
+
+      .brand-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 5px 14px;
+        border-radius: 9999px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 12px;
+        font-weight: 500;
+        margin-bottom: 16px;
+        backdrop-filter: blur(12px);
+      }
+
+      .brand-badge span.pulse-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #22c55e;
+        box-shadow: 0 0 10px #22c55e;
+      }
+
+      .hero-title {
+        font-size: 38px;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        line-height: 1.15;
+        color: #ffffff;
+        margin-bottom: 12px;
+        background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.7) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .hero-desc {
+        font-size: 15px;
+        line-height: 1.55;
+        color: rgba(255, 255, 255, 0.55);
+        max-width: 620px;
+        margin: 0 auto;
+      }
+
+      /* Grid of Operational Cards */
+      .ops-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 16px;
+        max-width: 860px;
+        width: 100%;
+        margin-bottom: 24px;
+      }
+
+      .ops-card {
+        background: rgba(18, 20, 26, 0.65);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 16px;
+        padding: 18px 20px;
+        backdrop-filter: blur(20px);
+        transition: transform 0.2s ease, border-color 0.2s ease;
+      }
+
+      .ops-card:hover {
+        transform: translateY(-2px);
+        border-color: rgba(255, 255, 255, 0.14);
+      }
+
+      .ops-card-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 12px;
+      }
+
+      .ops-card-title {
+        font-size: 13px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.85);
+      }
+
+      .ops-card-badge {
+        font-size: 11px;
+        font-family: 'JetBrains Mono', monospace;
+        padding: 2px 8px;
+        border-radius: 6px;
+        background: rgba(255, 255, 255, 0.06);
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      .ops-card-value {
+        font-size: 24px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: #ffffff;
+        margin-bottom: 4px;
+      }
+
+      .ops-card-sub {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.45);
+      }
+
+      /* Interactive Simulator Dock */
+      .dock-container {
+        position: fixed;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10002;
+        background: rgba(14, 16, 21, 0.82);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 20px 48px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(0, 0, 0, 0.5);
+        border-radius: 20px;
+        padding: 8px 12px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        backdrop-filter: blur(24px) saturate(180%);
+      }
+
+      .dock-btn {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+        color: #f1f2f4;
+        font-family: 'Inter', sans-serif;
+        font-size: 12px;
+        font-weight: 500;
+        padding: 7px 12px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: all 0.15s ease;
+      }
+
+      .dock-btn:hover {
+        background: rgba(255, 255, 255, 0.12);
+        border-color: rgba(255, 255, 255, 0.2);
+        transform: translateY(-1px);
+      }
+
+      .dock-btn:active {
+        transform: translateY(0);
+      }
+
+      .dock-btn.primary {
+        background: rgba(99, 102, 241, 0.25);
+        border-color: rgba(99, 102, 241, 0.5);
+        color: #ffffff;
+      }
+
+      .dock-btn.primary:hover {
+        background: rgba(99, 102, 241, 0.4);
+      }
+
+      .dock-separator {
+        width: 1px;
+        height: 20px;
+        background: rgba(255, 255, 255, 0.1);
+        margin: 0 2px;
+      }
+
+      .hint-text {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.35);
+        margin-top: 18px;
+        text-align: center;
+        font-family: 'JetBrains Mono', monospace;
+      }
+
+      .hint-kbd {
+        padding: 2px 6px;
+        border-radius: 5px;
+        background: rgba(255, 255, 255, 0.08);
+        color: rgba(255, 255, 255, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        font-size: 11px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Ambient Top Glow -->
+    <div class="ambient-glow"></div>
+
+    <!-- Background Workspace Content -->
+    <div class="workspace-background">
+      <div class="hero-section">
+        <div class="brand-badge">
+          <span class="pulse-dot"></span>
+          Palgen • Ambient Control Central Active
+        </div>
+        <h1 class="hero-title">Coucou Dynamic Island</h1>
+        <p class="hero-desc">
+          The ambient AI companion and operational control layer running natively in your browser. Glance at the top-center notch for live activities, agent status, and 1-tap decisions.
+        </p>
+      </div>
+
+      <!-- Live Operational Telemetry Cards -->
+      <div class="ops-grid">
+        <div class="ops-card">
+          <div class="ops-card-header">
+            <span class="ops-card-title">Live Activities</span>
+            <span class="ops-card-badge">ACTIVE</span>
+          </div>
+          <div class="ops-card-value">2 In-Flight</div>
+          <div class="ops-card-sub">Client Chair Turnover • Softphone Channel</div>
+        </div>
+
+        <div class="ops-card">
+          <div class="ops-card-header">
+            <span class="ops-card-title">Pending Approvals</span>
+            <span class="ops-card-badge">DECISION</span>
+          </div>
+          <div class="ops-card-value">1 Ready</div>
+          <div class="ops-card-sub">VIP Service Waiver #1042</div>
+        </div>
+
+        <div class="ops-card">
+          <div class="ops-card-header">
+            <span class="ops-card-title">Telephony HUD</span>
+            <span class="ops-card-badge">WEBRTC</span>
+          </div>
+          <div class="ops-card-value">SIP Standby</div>
+          <div class="ops-card-sub">Asterisk Gateway • 0 missed calls</div>
+        </div>
+      </div>
+
+      <div class="hint-text">
+        Click the top notch to expand • Press <span class="hint-kbd">Esc</span> to collapse • Right-click Mochi for Wardrobe
+      </div>
+    </div>
+
+    <!-- Floating Interactive Simulator Controls -->
+    <div class="dock-container">
+      <button class="dock-btn primary" onclick="window.Coucou?.toggle()" title="Toggle between compact notch and expanded card">
+        ⚡ Toggle Island
+      </button>
+      <button class="dock-btn" onclick="window.Coucou?.launchGreeting()" title="Replay Mochi's launch wave and theme">
+        👋 Greet
+      </button>
+      <div class="dock-separator"></div>
+      <button class="dock-btn" onclick="window.Coucou?.simulateApproval()" title="Trigger a permission approval in the notch">
+        🛡️ Approval
+      </button>
+      <button class="dock-btn" onclick="window.Coucou?.simulateQuestion()" title="Trigger an interactive question in the notch">
+        ❓ Question
+      </button>
+      <button class="dock-btn" onclick="window.Coucou?.simulateTask('working')" title="Simulate an active agent task">
+        ⚙️ Working
+      </button>
+      <button class="dock-btn" onclick="window.Coucou?.simulateTask('finished')" title="Simulate a finished celebration">
+        🎉 Done
+      </button>
+      <div class="dock-separator"></div>
+      <button class="dock-btn" onclick="window.Coucou?.toggleWardrobe()" title="Open Mochi's wardrobe">
+        👔 Wardrobe
+      </button>
+      <button class="dock-btn" onclick="window.Coucou?.expand('settings')" title="Open settings">
+        ⚙️ Settings
+      </button>
+    </div>
+
+    <!-- Coucou Dynamic Island Mount Point -->
+    <div id="root"></div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
