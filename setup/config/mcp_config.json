@@ -1,0 +1,31 @@
+{
+  "mcpServers": {
+    "docling": {
+      "command": "uvx",
+      "args": [
+        "--from=docling-mcp",
+        "docling-mcp-server",
+        "--transport",
+        "stdio",
+        "conversion",
+        "generation",
+        "manipulation"
+      ]
+    },
+    "markitdown": {
+      "command": "uvx",
+      "args": [
+        "--from=markitdown-mcp",
+        "markitdown-mcp"
+      ]
+    },
+    "chrome_devtools": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "chrome-devtools-mcp@latest",
+        "--headless"
+      ]
+    }
+  }
+}

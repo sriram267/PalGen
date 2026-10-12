@@ -1,0 +1,1 @@
+../../setup/rules/AGENTS.md

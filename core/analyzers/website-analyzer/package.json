@@ -1,0 +1,22 @@
+{
+  "name": "website-analyzer",
+  "version": "1.0.0",
+  "description": "Website End-to-End Analyzer Suite for AI Agents",
+  "main": "scripts/website_analyzer.mjs",
+  "type": "module",
+  "scripts": {
+    "analyze": "node scripts/website_analyzer.mjs",
+    "screenshots": "node scripts/website_analyzer.mjs --screenshots-only"
+  },
+  "keywords": [
+    "ai-agent",
+    "website-analyzer",
+    "core-web-vitals",
+    "lighthouse",
+    "devtools",
+    "accessibility",
+    "seo"
+  ],
+  "author": "",
+  "license": "MIT"
+}

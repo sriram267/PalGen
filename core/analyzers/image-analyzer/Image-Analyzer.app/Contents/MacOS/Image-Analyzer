@@ -1,0 +1,13 @@
+#!/bin/bash
+TARGET="$1"
+if [ -z "$TARGET" ]; then
+  osascript -e 'tell application "Terminal"
+    activate
+    do script "echo \"=== Image End-to-End Analyzer ===\"; python3 /Users/waffor/Desktop/Skills/image-analyzer/scripts/image_analyzer.py --help; echo \"\"; echo \"Drag and drop an image file here and press Enter:\"; read img; python3 /Users/waffor/Desktop/Skills/image-analyzer/scripts/image_analyzer.py \"$img\""
+  end tell'
+else
+  osascript -e "tell application \"Terminal\"
+    activate
+    do script \"python3 /Users/waffor/Desktop/Skills/image-analyzer/scripts/image_analyzer.py '$TARGET'\"
+  end tell"
+fi

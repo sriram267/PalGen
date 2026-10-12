@@ -1,0 +1,13 @@
+#!/bin/bash
+TARGET="$1"
+if [ -z "$TARGET" ]; then
+  osascript -e 'tell application "Terminal"
+    activate
+    do script "echo \"=== Website End-to-End Analyzer ===\"; node /Users/waffor/Desktop/Skills/website-analyzer/scripts/website_analyzer.mjs --help; echo \"\"; echo \"Enter website URL to audit (e.g. http://localhost:5173 or https://example.com): \"; read url; node /Users/waffor/Desktop/Skills/website-analyzer/scripts/website_analyzer.mjs \"$url\""
+  end tell'
+else
+  osascript -e "tell application \"Terminal\"
+    activate
+    do script \"node /Users/waffor/Desktop/Skills/website-analyzer/scripts/website_analyzer.mjs '$TARGET'\"
+  end tell"
+fi

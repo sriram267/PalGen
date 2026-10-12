@@ -1,0 +1,354 @@
+{
+  "ui-ux-design": {
+    "title": "UI/UX, Visual Design & Motion",
+    "keywords": [
+      "ui",
+      "ux",
+      "design",
+      "color",
+      "palette",
+      "typography",
+      "css",
+      "styling",
+      "motion",
+      "animation",
+      "apple",
+      "figma",
+      "tailwind",
+      "theme",
+      "layout"
+    ],
+    "flagship": [
+      "uiux-designer",
+      "apple-design",
+      "emil-design-eng",
+      "antigravity-design-expert",
+      "frontend-design"
+    ]
+  },
+  "frontend-engineering": {
+    "title": "Frontend Architecture & Frameworks",
+    "keywords": [
+      "react",
+      "nextjs",
+      "vue",
+      "angular",
+      "svelte",
+      "typescript",
+      "javascript",
+      "state",
+      "tanstack",
+      "suspense",
+      "spa",
+      "ssr",
+      "components"
+    ],
+    "flagship": [
+      "frontend-expert",
+      "frontend-design",
+      "3d-web-experience",
+      "react-best-practices",
+      "react-state-management"
+    ]
+  },
+  "3d-immersive": {
+    "title": "3D, WebGL & Interactive Graphics",
+    "keywords": [
+      "threejs",
+      "three",
+      "webgl",
+      "r3f",
+      "fiber",
+      "shader",
+      "3d",
+      "spline",
+      "canvas",
+      "opengl",
+      "gltf"
+    ],
+    "flagship": [
+      "3d-web-experience"
+    ]
+  },
+  "backend-api": {
+    "title": "Backend Services, APIs & Microservices",
+    "keywords": [
+      "backend",
+      "api",
+      "rest",
+      "graphql",
+      "fastapi",
+      "express",
+      "django",
+      "node",
+      "server",
+      "microservice",
+      "grpc",
+      "endpoint"
+    ],
+    "flagship": [
+      "python-fastapi-development",
+      "graphql-architect",
+      "graphql-schema",
+      "api-security-best-practices",
+      "nodejs-best-practices"
+    ]
+  },
+  "database-storage": {
+    "title": "Databases, ORM & Data Architecture",
+    "keywords": [
+      "database",
+      "sql",
+      "postgres",
+      "mysql",
+      "mongodb",
+      "sqlite",
+      "prisma",
+      "neon",
+      "redis",
+      "orm",
+      "migration",
+      "query"
+    ],
+    "flagship": [
+      "database-architect",
+      "neon-postgres",
+      "database-migration",
+      "supabase-postgres-best-practices",
+      "database-optimizer",
+      "redis-cli"
+    ]
+  },
+  "devops-cloud": {
+    "title": "Cloud, DevOps, Containers & Infrastructure",
+    "keywords": [
+      "docker",
+      "kubernetes",
+      "k8s",
+      "aws",
+      "azure",
+      "gcp",
+      "terraform",
+      "serverless",
+      "lambda",
+      "cloudflare",
+      "workers",
+      "ci",
+      "cd",
+      "deploy",
+      "helm"
+    ],
+    "flagship": [
+      "docker-expert",
+      "kubernetes-architect",
+      "aws-serverless-eda",
+      "cloudflare-workers",
+      "terraform-specialist",
+      "gpu-server-management"
+    ]
+  },
+  "testing-qa": {
+    "title": "Testing, QA & Test Automation",
+    "keywords": [
+      "test",
+      "testing",
+      "unit",
+      "e2e",
+      "integration",
+      "jest",
+      "pytest",
+      "playwright",
+      "cypress",
+      "tdd",
+      "mock",
+      "coverage"
+    ],
+    "flagship": [
+      "testing-patterns",
+      "e2e-testing",
+      "playwright-skill",
+      "tdd-workflows-tdd-cycle"
+    ]
+  },
+  "security-compliance": {
+    "title": "Security, Hardening & Compliance",
+    "keywords": [
+      "security",
+      "audit",
+      "pentest",
+      "vulnerability",
+      "sast",
+      "threat",
+      "pci",
+      "auth",
+      "token",
+      "encryption",
+      "xss",
+      "sqli",
+      "iam",
+      "secrets"
+    ],
+    "flagship": [
+      "security-audit",
+      "sast-scanning",
+      "threat-modeling",
+      "pci-dss-compliance",
+      "aws-security-audit",
+      "ssh-penetration-testing"
+    ]
+  },
+  "multimodal-analysis": {
+    "title": "Multimodal Deep Analysis (Image/Video/Web)",
+    "keywords": [
+      "image",
+      "video",
+      "website",
+      "audit",
+      "screenshot",
+      "lighthouse",
+      "storyboard",
+      "keyframes",
+      "whisper",
+      "ocr",
+      "telemetry",
+      "exif",
+      "palette"
+    ],
+    "flagship": [
+      "image-analyzer",
+      "video-analyzer",
+      "website-analyzer",
+      "fal-upscale"
+    ]
+  },
+  "ai-agentic-systems": {
+    "title": "AI, LLMs, Agents & MCP Tools",
+    "keywords": [
+      "ai",
+      "agent",
+      "llm",
+      "prompt",
+      "mcp",
+      "banana",
+      "gemini",
+      "claude",
+      "rag",
+      "embeddings",
+      "orchestration",
+      "chain"
+    ],
+    "flagship": [
+      "banana-claude",
+      "prompt-engineering-patterns",
+      "gemini-live-api-dev",
+      "aws-agentic-ai",
+      "workflow-orchestration-patterns"
+    ]
+  },
+  "seo-growth-marketing": {
+    "title": "SEO, Copywriting, Marketing & Growth",
+    "keywords": [
+      "seo",
+      "copywriting",
+      "marketing",
+      "content",
+      "schema",
+      "conversion",
+      "landing",
+      "brag",
+      "video",
+      "humanizer",
+      "rewrite",
+      "pitch"
+    ],
+    "flagship": [
+      "copywriting",
+      "brag",
+      "humanizer",
+      "seo-aeo-schema-generator",
+      "seo-content",
+      "seo-aeo-content-quality-auditor"
+    ]
+  },
+  "search-indexing": {
+    "title": "Search, Indexing & Discovery",
+    "keywords": [
+      "search",
+      "algolia",
+      "elastic",
+      "index",
+      "indexing",
+      "vector",
+      "fuzzy",
+      "relevance",
+      "instantsearch"
+    ],
+    "flagship": [
+      "algolia-search",
+      "vector-database-ops"
+    ]
+  },
+  "browser-extensions": {
+    "title": "Browser Extensions & Automation",
+    "keywords": [
+      "extension",
+      "chrome",
+      "firefox",
+      "manifest",
+      "popup",
+      "content",
+      "background",
+      "browser",
+      "automation"
+    ],
+    "flagship": [
+      "browser-extension-builder",
+      "reverse-browser-automation",
+      "skyvern-browser-automation"
+    ]
+  },
+  "git-workflow-versioning": {
+    "title": "Git Workflows, Code Review & Collaboration",
+    "keywords": [
+      "git",
+      "github",
+      "commit",
+      "branch",
+      "pr",
+      "pull",
+      "review",
+      "merge",
+      "rebase",
+      "workflow",
+      "worktree"
+    ],
+    "flagship": [
+      "git-workflow",
+      "github-actions",
+      "performance-testing-review-ai-review",
+      "git-hooks-automation"
+    ]
+  },
+  "debugging-incident-response": {
+    "title": "Debugging, Incident Response & Observability",
+    "keywords": [
+      "debug",
+      "incident",
+      "error",
+      "logs",
+      "trace",
+      "triage",
+      "sentry",
+      "monitoring",
+      "root-cause",
+      "fix",
+      "smart-debug"
+    ],
+    "flagship": [
+      "debugging-code",
+      "incident-response",
+      "debugging-toolkit-smart-debug",
+      "error-debugging-error-analysis"
+    ]
+  }
+}

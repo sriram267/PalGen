@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Website Analyzer</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      width: 360px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 16px;
+      font-size: 13px;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #1e293b;
+      padding-bottom: 12px;
+      margin-bottom: 14px;
+    }
+    .header h1 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #38bdf8;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .badge {
+      background: #0284c7;
+      color: #ffffff;
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: 9999px;
+      font-weight: 600;
+    }
+    .btn {
+      width: 100%;
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 9px 12px;
+      font-weight: 600;
+      font-size: 12px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: background 0.2s;
+      margin-bottom: 12px;
+    }
+    .btn:hover { background: #1d4ed8; }
+    .btn-secondary {
+      background: #1e293b;
+      color: #cbd5e1;
+    }
+    .btn-secondary:hover { background: #334155; }
+    .card {
+      background: #1e293b;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 10px;
+      border: 1px solid #334155;
+    }
+    .card-title {
+      font-weight: 600;
+      color: #94a3b8;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .stat-box {
+      background: #0f172a;
+      padding: 8px;
+      border-radius: 6px;
+      text-align: center;
+    }
+    .stat-val {
+      font-size: 16px;
+      font-weight: 700;
+      color: #f1f5f9;
+    }
+    .stat-lbl {
+      font-size: 10px;
+      color: #64748b;
+      margin-top: 2px;
+    }
+    .pill {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 500;
+    }
+    .pill-green { background: #064e3b; color: #34d399; }
+    .pill-red { background: #7f1d1d; color: #f87171; }
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+      font-size: 12px;
+    }
+    .detail-label { color: #94a3b8; }
+    .detail-val { color: #e2e8f0; font-weight: 500; max-width: 200px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; }
+    #status {
+      font-size: 11px;
+      color: #94a3b8;
+      text-align: center;
+      margin-top: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>🌐 Web Analyzer</h1>
+    <span class="badge">v1.0</span>
+  </div>
+
+  <button id="runAuditBtn" class="btn">⚡ Audit Current Page</button>
+
+  <div id="results" style="display: none;">
+    <div class="card">
+      <div class="card-title"><span>Page Health Overview</span></div>
+      <div class="grid">
+        <div class="stat-box">
+          <div class="stat-val" id="h1Stat">-</div>
+          <div class="stat-lbl">H1 Headings</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val" id="altStat">-</div>
+          <div class="stat-lbl">Images Missing Alt</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val" id="btnStat">-</div>
+          <div class="stat-lbl">Interactive Elements</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val" id="linkStat">-</div>
+          <div class="stat-lbl">Page Links</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span>On-Page SEO Tags</span></div>
+      <div class="detail-row">
+        <span class="detail-label">Title</span>
+        <span class="detail-val" id="titleVal">-</span>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label">Meta Desc</span>
+        <span class="detail-val" id="descVal">-</span>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label">OpenGraph</span>
+        <span class="detail-val" id="ogVal">-</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span>Accessibility (A11y)</span></div>
+      <div class="detail-row">
+        <span class="detail-label">Viewport Meta</span>
+        <span id="viewportPill" class="pill pill-green">Present</span>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label">Forms Audited</span>
+        <span class="detail-val" id="formsVal">0</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="status">Click "Audit Current Page" to inspect.</div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

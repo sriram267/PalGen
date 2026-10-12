@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "humanizer",
+  "description": "Antigravity derivative of blader/humanizer v2.9.1: humanize prose while preserving source facts and the author's voice.",
+  "version": "0.300.1",
+  "author": {
+    "name": "blader (original); Antigravity Skills (derivative)",
+    "url": "https://github.com/blader"
+  },
+  "homepage": "https://github.com/blader/humanizer",
+  "repository": "https://github.com/blader/humanizer",
+  "license": "MIT",
+  "keywords": ["writing", "editing", "ai-detection", "humanize", "prose", "style"]
+}

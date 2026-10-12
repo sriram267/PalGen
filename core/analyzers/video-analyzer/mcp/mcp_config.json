@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "media_deep_analyzer": {
+      "command": "/opt/homebrew/bin/uv",
+      "args": [
+        "run",
+        "--with",
+        "mcp<2",
+        "--with",
+        "Pillow",
+        "--with",
+        "faster-whisper",
+        "python3",
+        "/Users/waffor/.gemini/config/plugins/media-deep-analyzer/media_analyzer_server.py"
+      ]
+    }
+  }
+}

@@ -1,0 +1,13 @@
+#!/bin/bash
+TARGET="$1"
+if [ -z "$TARGET" ]; then
+  osascript -e 'tell application "Terminal"
+    activate
+    do script "echo \"=== Video End-to-End Analyzer ===\"; python3 /Users/waffor/Desktop/Skills/video-analyzer/scripts/video_analyzer.py --help; echo \"\"; echo \"Drag and drop a video file here and press Enter:\"; read vid; python3 /Users/waffor/Desktop/Skills/video-analyzer/scripts/video_analyzer.py \"$vid\""
+  end tell'
+else
+  osascript -e "tell application \"Terminal\"
+    activate
+    do script \"python3 /Users/waffor/Desktop/Skills/video-analyzer/scripts/video_analyzer.py '$TARGET'\"
+  end tell"
+fi

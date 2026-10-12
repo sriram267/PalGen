@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Website End-to-End Analyzer",
+  "version": "1.0.0",
+  "description": "Comprehensive on-page SEO, Accessibility (A11y), DOM structure, and multi-viewport visual auditing extension.",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Website Analyzer"
+  }
+}

@@ -1,0 +1,12 @@
+# Cursor IDE AI Rules
+This workspace is the Universal Multimodal End-to-End Analysis Suite for Images, Videos, and Websites.
+Always read setup/rules/AGENTS.md for full agent protocols.
+
+Whenever inspecting or analyzing:
+- Images: run `python core/launchers/analyze.py image <path>`
+- Videos: run `python core/launchers/analyze.py video <path>`
+- Websites: run `python core/launchers/analyze.py website <url>`
+- Routing: run `python core/launchers/analyze.py route "<prompt>"`
+- Diagnostics: run `python core/launchers/analyze.py doctor`
+
+Cross-platform compatible with Windows, macOS, and Linux. Never hallucinate visual details, colors, speech, or layout responsiveness without running the analyzers.
